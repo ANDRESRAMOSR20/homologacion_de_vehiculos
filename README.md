@@ -156,8 +156,9 @@ Cualquier persona puede descargar y ejecutar la última versión del sistema dir
 2.  **Ejecutar el contenedor**:
     Es necesario pasar la API Key de OpenAI como variable de entorno.
     ```bash
-    docker run -p 8000:8000 -e OPENAI_API_KEY="tu-api-key-aqui" klenstoner/homologacion_de_vehiculos-api:latest
+    docker run -p 8000:8000 -e OPENAI_API_KEY="tu-api-key-aqui" klenstoner/homologacion_de_vehiculos-api
     ```
 
 3.  **Probar**:
     El servicio estará disponible en `http://localhost:8000`.
+
