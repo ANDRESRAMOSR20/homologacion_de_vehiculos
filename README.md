@@ -28,6 +28,9 @@ Este documento detalla la arquitectura, tecnologías y decisiones de diseño imp
 *   **Justificación**: Garantiza que el entorno de ejecución sea idéntico en desarrollo y producción, eliminando problemas de dependencias ("en mi máquina funciona").
 *   **Uso**: Empaquetado de la aplicación y sus librerías.
 
+### 7. IDE: **Antigravity**
+*   **Justificación**: La nueva herramienta de google mostro innovacion con la nueva herramienta Agent Manager la cual sirve de guiador para esquematizar el desarrollo, llevandose a cursor con gran diferencia.
+*   **Uso**: Esquematizar y realizar montajes de una forma mas facil y estructurada, ademas de un markdowm de guia en cada una de sus inferencias.
 ---
 
 ## 🚧 Desafíos y Soluciones
@@ -159,6 +162,7 @@ Cualquier persona puede descargar y ejecutar la última versión del sistema dir
 
 3.  **Probar**:
     El servicio estará disponible en `http://localhost:8000`.
+
 
 
 
