@@ -107,7 +107,7 @@ Una vez que el contenedor Docker está corriendo (`docker-compose up`), la API e
 ### 2. Probando el Sistema
 Puedes probar la homologación enviando una petición POST a `/match/`.
 
-<img width="781" height="476" alt="prueba-api" src="https://github.com/user-attachments/assets/d809dd64-5acd-4eb5-a9b7-a26e3076c752" />
+<p align= "center"> <img width="781" height="476" alt="prueba-api" src="https://github.com/user-attachments/assets/d809dd64-5acd-4eb5-a9b7-a26e3076c752" /></p>
 
 
 **Ejemplo de Request (JSON):**
@@ -164,5 +164,6 @@ Cualquier persona puede descargar y ejecutar la última versión del sistema dir
 
 3.  **Probar**:
     El servicio estará disponible en `http://localhost:8000`.
+
 
 
