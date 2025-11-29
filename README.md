@@ -91,3 +91,73 @@ El sistema implementa una lógica de auto-aprendizaje para vehículos no encontr
 4.  Se reconstruye el índice vectorial para que este nuevo vehículo sea "encontrable" en el futuro.
 
 Esto permite que el catálogo crezca orgánicamente con la información de los socios, manteniendo la integridad de los datos oficiales.
+
+---
+
+## 📖 Manual de Usuario
+
+### 1. Despliegue Local
+Una vez que el contenedor Docker está corriendo (`docker-compose up`), la API estará disponible en:
+
+👉 **http://localhost:8000**
+
+*   **Documentación Interactiva (Swagger UI)**: [http://localhost:8000/docs](http://localhost:8000/docs)
+*   **Métricas de Uso**: [http://localhost:8000/match/metrics](http://localhost:8000/match/metrics)
+
+### 2. Probando el Sistema
+Puedes probar la homologación enviando una petición POST a `/match/`.
+
+**Ejemplo de Request (JSON):**
+```json
+{
+  "partner_id": "SOCIO-123",
+  "vehicle_name": "Mazda 3 2008 Touring"
+}
+```
+
+**Ejemplo de Respuesta (JSON):**
+```json
+{
+  "match": true,
+  "vehicle_id": "M-100",
+  "confidence": 0.92,
+  "llm_used": false
+}
+```
+
+### 3. Scripts de Utilidad
+Para ejecutar tareas administrativas dentro del contenedor:
+
+*   **Cargar Catálogo Oficial**:
+    ```bash
+    docker-compose exec api python src/core/db/migrations/versions/001_seed_vehicles.py
+    ```
+*   **Cargar Vehículos de Socios**:
+    ```bash
+    docker-compose exec api python src/core/db/migrations/versions/002_seed_partner_vehicles.py
+    ```
+*   **Procesamiento Batch (Catálogo Unificado)**:
+    ```bash
+    docker-compose exec api python scripts/process_partner_vehicles.py
+    ```
+*   **Reconstruir Índice Vectorial**:
+    ```bash
+    docker-compose exec api python scripts/build_vector_index.py
+    ```
+
+### 4. Despliegue desde Docker Hub
+Cualquier persona puede descargar y ejecutar la última versión del sistema directamente desde la nube:
+
+1.  **Descargar la imagen**:
+    ```bash
+    docker pull klenstoner/homologacion_de_vehiculos-api
+    ```
+
+2.  **Ejecutar el contenedor**:
+    Es necesario pasar la API Key de OpenAI como variable de entorno.
+    ```bash
+    docker run -p 8000:8000 -e OPENAI_API_KEY="tu-api-key-aqui" klenstoner/homologacion_de_vehiculos-api:latest
+    ```
+
+3.  **Probar**:
+    El servicio estará disponible en `http://localhost:8000`.
