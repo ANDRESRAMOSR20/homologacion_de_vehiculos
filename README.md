@@ -48,11 +48,6 @@ Este documento detalla la arquitectura, tecnologías y decisiones de diseño imp
 *   **Desafío**: Inicialmente, el LLM recibía solo IDs (ej. "M-100") y no podía decidir.
 *   **Solución**: Modificamos el `SimilarityService` para devolver tuplas `(id, nombre, score)` y actualizamos el prompt del LLM para incluir los nombres completos de los candidatos.
 
-### 4. Docker Build Lento
-*   **Desafío**: La construcción de la imagen tardaba mucho y fallaba por tamaño de contexto.
-*   **Solución**: Identificamos que se estaba copiando el entorno virtual `veh-env` (gigabytes de archivos). Lo agregamos al `.dockerignore`, reduciendo el contexto a unos pocos megabytes.
-
----
 
 ## 📂 Estructura del Proyecto
 
@@ -164,6 +159,7 @@ Cualquier persona puede descargar y ejecutar la última versión del sistema dir
 
 3.  **Probar**:
     El servicio estará disponible en `http://localhost:8000`.
+
 
 
 
