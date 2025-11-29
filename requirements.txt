@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+sqlalchemy
+alembic
+python-dotenv
+sentence-transformers
+faiss-cpu
+pydantic
+pydantic-settings
+requests
+pytest
+openai

@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+veh-env/
+venv/
+env/
+.venv/
+
+# Environment Variables
+.env
+
+# Database
+*.db
+*.sqlite3
+
+# Vector Store (Generated files)
+src/vector_store/*.faiss
+src/vector_store/*.pkl
+
+# IDEs
+.vscode/
+.idea/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+test_output.txt
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
